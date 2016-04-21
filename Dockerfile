@@ -2,10 +2,12 @@ FROM golang:1.6
 
 COPY cmd/freegeoip/public /var/www
 
-ADD . /go/src/github.com/fiorix/freegeoip
-RUN cd /go/src/github.com/fiorix/freegeoip/cmd/freegeoip && go get && go install
+ADD . /go/src/github.com/briandbecker/freegeoip
+RUN cd /go/src/github.com/briandbecker/freegeoip/cmd/freegeoip && go get && go install
 
 ENTRYPOINT ["/go/bin/freegeoip"]
+
+CMD ["-use-x-forwarded-for"]
 
 # CMD instructions:
 # Add  "-use-x-forwarded-for"      if your server is behind a reverse proxy

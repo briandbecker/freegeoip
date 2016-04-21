@@ -30,7 +30,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/rs/cors"
 
-	"github.com/fiorix/freegeoip"
+	"github.com/briandbecker/freegeoip"
 )
 
 type apiHandler struct {
